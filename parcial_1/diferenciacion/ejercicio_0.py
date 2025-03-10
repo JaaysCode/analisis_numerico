@@ -12,22 +12,16 @@ Grafique la solución
 import matplotlib.pyplot as plt
 
 concentraciones = [10]
-h = 0.1
+h = 0.1 #horas
 k = 0.25
-concentracion_inicial = 10
-tiempo = 0
-tiempo_total = 1
-tiempos = [0]
-while tiempo <= tiempo_total:
-    concentraciones.append(-k*h*concentracion_inicial + concentracion_inicial)
-    tiempos.append(tiempo)
-    tiempo += h
+tiempo_inicial = 0
+tiempo_final =  tiempo_inicial + h#horas
+
+
+while (tiempo_final <= 24):
+    concentraciones.append(-k*concentraciones[-1]*h + concentraciones[-1])
+    tiempo_final += h
 
 print(concentraciones)
-plt.plot(tiempos, concentraciones, marker = 'o')
-plt.xlabel('Tiempo (dias)')
-plt.ylabel('Concentra9cion (Bq/L)')
-plt.title('Decaimiento del contaminante radioactivo')
-plt.grid(True)
+plt.plot(concentraciones)
 plt.show()
-
