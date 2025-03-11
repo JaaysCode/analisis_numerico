@@ -26,8 +26,3 @@ print(v)
 plt.plot(v)
 plt.show()
 
-x = sp.symbols('x')
-funcion = 10*sp.exp((-x/10)*sp.sin(2*x))
-derivada = sp.diff(funcion, x)
-derivada.evalf(subs={x: 1.2})
-print(derivada)
