@@ -1,4 +1,5 @@
 import sympy as sp
+import numpy as np
 
 def biseccion(funcion, a, b, tolerancia):
 
@@ -48,6 +49,20 @@ def newton(funcion, tolerancia, x):
         x = x - funcion(x)/fdx(x)
     return x
 
-x = sp.symbols('x')
-funcion_prueba = x**2 - 6
-print(newton(funcion_prueba, 1e-4, 1))
+def secante(funcion, tolerancia, x0, x1):
+
+    contador = 0
+    error = 1
+    while error > tolerancia:
+        contador +=1
+        x2 = x1 - funcion(x1)*(x0 - x1) / (funcion(x0) - funcion(x1))
+        error = abs(x2 - x1)
+        x0 = x1
+        x1 = x2
+    return contador, x2
+
+radio = 1
+volumen = 0.75
+funcion = lambda h: ((np.pi*h**2)*(3*radio - h))/3 - volumen
+print(secante(funcion, 10e-6, 1, 2))
+
