@@ -47,12 +47,12 @@ def jacobi_con_matrices(A,b,x0,tol):
         print("El sistema iterativo no converge con el método de Jacobi")
 
 
-A = np.array([[3, -1, 0], [-1, 4, -1], [0, -1, 5]], dtype=float)
-b = np.array([2, 3, 5], dtype=float)
+A = np.array([[1, 1], [1, 5,]], dtype=float)
+b = np.array([56.5, 113.0], dtype=float)
 tol = 1e-6
 x0 = np.zeros_like(b)
 
-solucion, error, tiempo = jacobi_con_matrices(A, b, x0, tol)
+solucion= jacobi_con_matrices(A, b, x0, tol)
 print("La solución es:", solucion)
-print("El error es:", error)
-print("El tiempo de cómputo es:", tiempo)
+#print("El error es:", error)
+#print("El tiempo de cómputo es:", tiempo)

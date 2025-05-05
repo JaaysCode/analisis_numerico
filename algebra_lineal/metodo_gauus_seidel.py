@@ -28,7 +28,7 @@ def gauss_seidel(A, b, x0, tol):
     Cg = np.dot(np.linalg.inv(D-L), b)
     v_propios, vect_propios = np.linalg.eig(Tg)
     radio = max(abs(v_propios))
-    print(f"Radio espectral: {radio}")
+    #print(f"Radio espectral: {radio}")
     if radio<1:
         time_start = time.time()
         error = 1
@@ -41,7 +41,7 @@ def gauss_seidel(A, b, x0, tol):
             iteracion += 1
         time_end = time.time()
         time_total = time_end - time_start
-        return x0, error, time_total
+        return x0
             
     else:
         print("El sistema iterativo no converge con el método de Jacobi")
@@ -52,7 +52,7 @@ b = np.array([2, 3, 5], dtype=float)
 tol = 1e-6
 x0 = np.zeros_like(b)
 
-solucion, error, tiempo = gauss_seidel(A, b, x0, tol)
+solucion = gauss_seidel(A, b, x0, tol)
 print("La solución es:", solucion)
-print("El error es:", error)
-print("El tiempo de cómputo es:", tiempo)
+#print("El error es:", error)
+#print("El tiempo de cómputo es:", tiempo)

@@ -31,8 +31,8 @@ def jacobi(A, b, x0, Nmax, tol):
     return x_sol
 
 
-A = np.array([[3, -1, 0], [-1 ,4 ,-1], [ 0, -1, 5]], dtype=float)
-b = np.array([2, 3, 5], dtype=float)
+A = np.array([[1, 1], [1 ,5]], dtype=float)
+b = np.array([56.5, 113], dtype=float)
 x0 = np.zeros(len(b))
 
 print(jacobi(A, b, x0, 50, 1e-2))
